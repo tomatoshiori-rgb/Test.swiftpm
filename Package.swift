@@ -10,7 +10,7 @@ let package = Package(
             name: "MyTestApp",
             targets: ["AppModule"],
             bundleIdentifier: "com.example.mytestapp",
-            appIcon: .placeholder(icon: .appShortcut),
+            appIcon: .placeholder(icon: .heart),
             supportedDeviceFamilies: [.pad, .phone],
             supportedInterfaceOrientations: [.portrait, .landscapeLeft, .landscapeRight]
         )

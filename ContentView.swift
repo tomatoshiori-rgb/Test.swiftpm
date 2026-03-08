@@ -1,26 +1,32 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var state = AppState()
+    @State private var isShowingInput = false
+    
     var body: some View {
-        // iOS 26のLiquid Glassデザインに最適化した中央配置
-        ZStack {
-            Color(uiColor: .systemGroupedBackground)
-                .ignoresSafeArea()
-
-            Button(action: {
-                print("OK Tapped on iOS 26")
-            }) {
-                Text("OK")
-                    .font(.title.bold())
-                    .frame(width: 200, height: 60)
+        NavigationStack {
+            List {
+                ForEach(state.items, id: \.self) { item in
+                    Text(item)
+                        .padding(.vertical, 4)
+                }
             }
-            .buttonStyle(.borderedProminent)
-            .controlSize(.extraLarge)
-            .clipShape(Capsule()) // 最新の標準スタイル
+            .navigationTitle("マイリスト")
+            .toolbar {
+                ToolbarItem(placement: .primaryAction) {
+                    Button {
+                        isShowingInput = true
+                    } label: {
+                        Image(systemName: "plus.circle.fill")
+                            .font(.title2)
+                    }
+                }
+            }
+            // 入力画面をシート（モーダル）で表示
+            .sheet(isPresented: $isShowingInput) {
+                InputView(appState: state)
+            }
         }
     }
-}
-
-#Preview {
-    ContentView()
 }

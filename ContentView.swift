@@ -2,25 +2,21 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        // 画面全体を中央揃えにする最新のレイアウト手法
+        // iOS 26のLiquid Glassデザインに最適化した中央配置
         ZStack {
-            // 背景色の指定（Liquid Glass環境でも安定）
             Color(uiColor: .systemGroupedBackground)
                 .ignoresSafeArea()
-            
-            VStack(spacing: 20) {
-                Button(action: {
-                    print("OKボタンがタップされました（iOS 26環境）")
-                }) {
-                    Text("OK")
-                        .font(.title2.bold())
-                        .frame(minWidth: 120, minHeight: 50)
-                }
-                // iOS 26の標準的な強調スタイル
-                .buttonStyle(.borderedProminent)
-                .controlSize(.extraLarge)
-                .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+
+            Button(action: {
+                print("OK Tapped on iOS 26")
+            }) {
+                Text("OK")
+                    .font(.title.bold())
+                    .frame(width: 200, height: 60)
             }
+            .buttonStyle(.borderedProminent)
+            .controlSize(.extraLarge)
+            .clipShape(Capsule()) // 最新の標準スタイル
         }
     }
 }

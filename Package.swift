@@ -14,7 +14,7 @@ let package = Package(
             bundleIdentifier: "com.user.testapp.v26", // 既存アプリと被らない名前に変更
             displayVersion: "1.0",
             bundleVersion: "1",
-            appIcon: .placeholder(icon: .appShortcut),
+            appIcon: .placeholder(icon: .heart),
             accentColor: .presetColor(.blue),
             supportedDeviceFamilies: [.pad, .phone],
             supportedInterfaceOrientations: [.portrait, .landscapeLeft, .landscapeRight]

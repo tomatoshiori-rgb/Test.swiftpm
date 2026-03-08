@@ -2,10 +2,19 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Button("OK") {
-            print("OK tapped")
+        // クラッシュを避けるため、極めてシンプルな構造にします
+        ZStack {
+            Color(uiColor: .systemBackground)
+                .ignoresSafeArea()
+            
+            Button {
+                print("OK")
+            } label: {
+                Text("OK")
+                    .font(.largeTitle)
+                    .padding()
+            }
+            .buttonStyle(.borderedProminent)
         }
-        .buttonStyle(.borderedProminent)
-        .controlSize(.extraLarge)
     }
 }

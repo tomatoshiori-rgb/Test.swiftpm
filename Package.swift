@@ -3,19 +3,34 @@ import PackageDescription
 import AppleProductTypes
 
 let package = Package(
-    name: "MyTestApp",
-    platforms: [.iOS("18.0")],
+    name: "TestApp",
+    platforms: [
+        .iOS("26.0") // 最新のiOS 26に対応
+    ],
     products: [
         .iOSApplication(
-            name: "MyTestApp",
+            name: "TestApp",
             targets: ["AppModule"],
-            bundleIdentifier: "com.example.mytestapp",
-            appIcon: .placeholder(icon: .heart),
-            supportedDeviceFamilies: [.pad, .phone],
-            supportedInterfaceOrientations: [.portrait, .landscapeLeft, .landscapeRight]
+            bundleIdentifier: "com.yourname.test.ios26", // 重複を避けるため書き換えてください
+            displayVersion: "1.0",
+            bundleVersion: "1",
+            appIcon: .placeholder(icon: .appShortcut),
+            accentColor: .presetColor(.blue),
+            supportedDeviceFamilies: [
+                .pad,
+                .phone
+            ],
+            supportedInterfaceOrientations: [
+                .portrait,
+                .landscapeLeft,
+                .landscapeRight
+            ]
         )
     ],
     targets: [
-        .executableTarget(name: "AppModule", path: ".")
+        .executableTarget(
+            name: "AppModule",
+            path: "."
+        )
     ]
 )
